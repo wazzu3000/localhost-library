@@ -8,8 +8,8 @@
 </div>
 <div class="modal-body">
     <form #bookForm="ngForm">
-        <ngb-input id="author" name="author" type="text" [(ngModel)]="book.author" label="Autor" [required]="true" [dirty]="formDirty"></ngb-input>
-        <ngb-input id="title" name="title" type="text" [(ngModel)]="book.title" label="Titulo" [required]="true" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="author" name="author" type="text" [(ngModel)]="book.author" label="Autor" [required]="true" requiredError="Campo requerido" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="title" name="title" type="text" [(ngModel)]="book.title" label="Titulo" [required]="true" requiredError="Campo requerido" [dirty]="formDirty"></ngb-input>
         <ngb-input id="year" name="year" type="number" [(ngModel)]="book.year" label="Año de publicación" [dirty]="formDirty"></ngb-input>
         <ngb-input id="pages" name="pages" type="number" [(ngModel)]="book.pages" label="Paginas" [dirty]="formDirty"></ngb-input>
         <ngb-input id="editorial" name="editorial" type="text" [(ngModel)]="book.editorial" label="Editorial" [dirty]="formDirty"></ngb-input>

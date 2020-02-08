@@ -24,18 +24,7 @@ import { DatabaseService } from './services/database.service';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        NgbInputModule.initializeApp(
-            {
-                errors: {
-                    ngbInput: {
-                        required: 'Campo requerido'
-                    }
-                },
-                information: {
-
-                }
-            }
-        ),
+        NgbInputModule,
         NgbModalModule
     ],
     providers: [
