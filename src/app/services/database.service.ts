@@ -45,6 +45,14 @@ export class DatabaseService {
         });
     }
 
+    public delete(id: string) {
+        return new Promise<any>((resolve, reject) => {
+            let request = this.getObjectStore('readwrite').delete(id);
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = evt => reject(evt);
+        });
+    }
+
     private getObjectStore(type: 'readwrite' | 'readonly') {
         return this.db.transaction(bookKey, type).objectStore(bookKey);
     }

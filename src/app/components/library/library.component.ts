@@ -34,6 +34,12 @@ export class LibraryComponent implements OnInit {
         this.router.navigateByUrl('/login');
     }
 
+    public async deleteBook(evt: Event, bookId: string) {
+        evt.stopPropagation();
+        await this.db.delete(bookId);
+        await this.updateBooks();
+    }
+
     private async updateBooks() {
         this.books = await this.db.getAll();
     }
