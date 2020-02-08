@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4>
+        {{ bookId ? 'Editar' : 'Agregar libro' }}
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #bookForm="ngForm">
+        <ngb-input id="author" name="author" type="text" [(ngModel)]="book.author" label="Autor" [required]="true" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="title" name="title" type="text" [(ngModel)]="book.title" label="Titulo" [required]="true" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="year" name="year" type="number" [(ngModel)]="book.year" label="Año de publicación" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="pages" name="pages" type="number" [(ngModel)]="book.pages" label="Paginas" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="editorial" name="editorial" type="text" [(ngModel)]="book.editorial" label="Editorial" [dirty]="formDirty"></ngb-input>
+        <ngb-input id="edition" name="edition" type="number" [(ngModel)]="book.edition" label="Edición" [dirty]="formDirty"></ngb-input>
+
+        <div class="row">
+            <div class="col text-right">
+                <button type="button" class="btn btn-primary" (click)="save()">
+                    <i class="far fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </div>
+        
+    </form>
+</div>

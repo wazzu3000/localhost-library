@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-6">
+        <h5>
+            Bienvenido {{ session.userName }}
+        </h5>
+    </div>
+    <div class="col-6 text-right">
+        <button type="button" class="btn btn-danger" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+        </button>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <!-- <div class="col">
+        <ngb-input id="search" name="search" [(ngModel)]="search" placeholder="Buscar..." #searchModule="ngbInputComponent">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+                <input [ngbInputDirective]="searchModule">
+            </div>
+        </ngb-input>
+    </div> -->
+    <div class="col text-right mb-2">
+        <button type="button" class="btn btn-info" (click)="bookForm()">
+            <i class="fas fa-plus"></i>
+            Agregar libro
+        </button>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Autor</th>
+                <th>Titulo</th>
+                <th>Publicación</th>
+                <th>Paginas</th>
+                <th>Editorial</th>
+                <th>Edición</th>
+                <th>Agregado por</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td *ngIf="books.length == 0" colspan="7" class="text-center">
+                    Aún no has agregado libros
+                </td>
+            </tr>
+            <tr *ngFor="let book of books" (click)="bookForm(book.id)">
+                <td>{{ book.author }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.year || emptyField }}</td>
+                <td>{{ book.pages || emptyField }}</td>
+                <td>{{ book.editorial || emptyField }}</td>
+                <td>{{ book.edition || emptyField }}</td>
+                <td>{{ book.addedBy }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
